@@ -1,0 +1,151 @@
+[
+   {
+        "label": "数据源",
+        "children": [
+            {
+                "label": "图数据库",
+                "children": []
+            },
+            {
+                "label": "关系型数据库",
+                "children": [
+                    {"label": "宏观数据概览","link":"#"}
+                ]
+            },
+             {
+                "label": "分布式数据库",
+                "children": []
+            }, {
+                "label": "对象数据库",
+                "children": []
+            }
+        ]
+    },
+    {
+        "label": "本体",
+        "children": [
+            {
+                "label": "对象","link":"#/knowledge/object",
+                "children": [
+                	{
+                	  "label":"增加","link":"#/knowledge/object/create"
+                	},
+                	{
+                	  "label":"查询","link":"#/knowledge/object/query"
+                	},
+                	{
+                	  "label":"更新","link":"#/knowledge/object/update"
+                	},
+                	{
+                	  "label":"删除","link":"#/knowledge/object/delete"
+                	}
+                ]
+            },
+            {
+                "label": "属性",
+                "children": []
+                
+            },
+            {
+                "label": "关联","link":"#",
+                "children": []
+            },
+            {
+                "label": "文本文件"                
+            },
+            {
+            	"label": "二进制文件"
+            }
+        ]
+    },
+    {
+        "label": "领域",
+      	"children": [
+            {
+                "label": "对象","link":"#/knowledge/domain",
+                "children": [
+                	{
+                	  "label":"增加","link":"#/knowledge/domain/create"
+                	},
+                	{
+                	  "label":"查询","link":"#/knowledge/domain/query"
+                	},
+                	{
+                	  "label":"更新","link":"#/knowledge/domain/update"
+                	},
+                	{
+                	  "label":"删除","link":"#/knowledge/domain/delete"
+                	}
+                ]
+            },
+            {
+                "label": "属性",
+                "children": []
+                
+            },
+            {
+                "label": "关联","link":"#",
+                "children": []
+            },
+            {
+                "label": "文本文件"                
+            },
+            {
+            	"label": "二进制文件"
+            }
+        ]
+    },
+    {
+        "label": "导入",
+        "children": [
+            {
+                "label": "本体",
+                "children": [
+                    {"label": "宏观数据概览","link":"#"}
+                ]
+            },
+            {
+                "label": "领域",
+                "children": []
+            }
+        ]
+    },
+    {
+        "label": "爬虫",
+        "children": [
+            {
+                "label": "配置",
+                "children": [
+                    {"label": "宏观数据概览","link":"#"}
+                ]
+            },
+            {
+                "label": "准确率",
+                "children": []
+            },
+            {
+                "label": "召回率",
+                "children": []
+            }
+        ]
+    },
+    {
+        "label": "规则",
+        "children": [
+            {
+                "label": "配置",
+                "children": [
+                    {"label": "宏观数据概览","link":"#"}
+                ]
+            },
+            {
+                "label": "准确率",
+                "children": []
+            },
+            {
+                "label": "召回率",
+                "children": []
+            }
+        ]
+    }
+]

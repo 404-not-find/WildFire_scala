@@ -1,0 +1,58 @@
+//created on: Jan 13, 2015
+package com.hiynn.rules
+
+//list any import classes here.
+import java.util.*;
+import java.util.Set;
+import java.util.ArrayList
+import function com.hiynn.drools.engine.Noise.getKeyWordsCollection
+import  com.hiynn.hbase.HbaseTool;
+import java.util.Iterator;
+import scala.collection.mutable.Map
+global List $commentList ;
+global String rule1 ;
+global java.util.Map map;
+//declare any global variables here
+function String getKeyWord(Integer index){
+		String keyWord = "";
+		Set<String> set = getKeyWordsCollection();
+		System.out.println(set);
+		String[] strSet = new String[set.size()];
+		set.toArray(strSet);
+		if(index <strSet.length){
+			keyWord = strSet[index];
+		}
+		return keyWord;
+}
+
+
+rule "noise_positive"
+	//dialect "mvel"
+	salience   9999
+	no-loop    true
+	
+    when
+    	  $content:List(this.get(0) matches("((.*)噪音(.+)小(.*))"))  
+    	
+    then
+    	$content.add("noise_positive:性能/噪音/正面");
+		//System.out.println($content);
+		
+
+end
+
+
+rule "noise_negtive"
+	salience   9998
+	no-loop    true
+	
+    when
+         $content:List(this.get(0) matches("((.*)噪音(.+)大(.*))"))  
+    then
+    	 $content.add("noise_negtive:性能/噪音/负面");
+		//System.out.println("noise: noise_negtive");
+
+end
+
+
+

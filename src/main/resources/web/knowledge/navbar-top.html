@@ -1,0 +1,27 @@
+<div class="container">
+	 
+    <div class="row" ng-controller="NavbarCtrl">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">知识库管理系统</a>
+            </div>
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li ng-repeat="a1 in navbar" class="dropdown" ng-class="{active:isActive(a1.label)}">
+                        <a href="{{ a1.link }}" class="dropdown-toggle" data-toggle="dropdown">{{ a1.label }} <b class="caret"></b></a>
+                        <ul class="dropdown-menu menu-top">
+                            <li ng-repeat="a2 in a1.children" class="dropdown-submenu">
+                                <a tabindex="-1" href="{{ a2.link }}">{{ a2.label }}</a>
+                                <ul ng-show="a2.children.length>0" class="dropdown-menu">
+                                    <li ng-repeat="a3 in a2.children">
+                                        <a href="{{ a3.link }}" ng-click="alert(a3.link)">{{ a3.label }}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>

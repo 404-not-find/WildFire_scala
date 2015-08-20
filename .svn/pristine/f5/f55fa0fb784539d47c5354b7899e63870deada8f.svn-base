@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>知识库系统</title>
+
+<!-- Stylesheets -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/angular-ui-tree.min.css">
+<link rel="stylesheet" href="css/tree.css">
+
+<style>
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+    </style>
+    
+</head>
+<body ng-app="treesApp">
+
+<div class="container">
+    <div class="row" >
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">知识库管理系统</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                	<li ng-class="{active:isActive('/ontology')}"><a href="/ontology">本体管理</a></li>
+                    <li ng-class="{active:isActive('/bagWords')}"><a href="/bagWords">词袋管理</a></li>
+                    <li ng-class="{active:isActive('/rule')}"><a href="/rule">规则管理</a></li>
+                    <li ng-class="{active:isActive('/dropdown')}" class="dropdown">
+                        <a href="/dropdown" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/dropdown/label1">label1</a></li>
+                            <li><a href="/dropdown/label2">label2</a></li>
+                            <li><a href="/dropdown/label3">label3</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/dropdown/label4">label4</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/dropdown/label5">label5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<div class="formContainer">
+
+</div>
+	<!-- Nested node template -->
+	<script type="text/ng-template" id="nodes_renderer1.html">
+    <div ui-tree-handle class="tree-node">
+      <div class="tree-node-content">
+        <a class="btn btn-success btn-xs" data-nodrag ng-click="toggle()"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
+        {{node.title}}
+        <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="remove(this)"><span class="glyphicon glyphicon-remove"></span></a>
+        <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="newSubItem(this)" style="margin-right: 8px;"><span class="glyphicon glyphicon-plus"></span></a>
+        <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="editSubItem(this)" style="margin-right: 8px;"><span class="glyphicon glyphicon-pencil"></span></a>
+      </div>
+    </div>
+    <ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
+      <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer1.html'">
+      </li>
+    </ol>
+  </script>
+	<script type="text/ng-template" id="nodes_renderer2.html">
+    <div class="tree-node">
+      <div class="pull-left tree-handle" ui-tree-handle>
+        <span class="glyphicon glyphicon-list"></span>
+      </div>
+      <div class="tree-node-content">
+        <a class="btn btn-success btn-xs" data-nodrag ng-click="toggle(this)"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
+        {{node.title}}
+        <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="remove(this)"><span class="glyphicon glyphicon-remove"></span></a>
+        <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="newSubItem(this)" style="margin-right: 8px;"><span class="glyphicon glyphicon-plus"></span></a>
+      </div>
+    </div>
+    <ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
+      <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer2.html'">
+      </li>
+    </ol>
+  </script>
+	<div class="container" ng-controller="treesCtrl">
+
+		<h3>词袋管理</h3>
+		<div class="row">
+			<div class="col-sm-6">
+				<div ui-tree id="tree1-root">
+					<ol ui-tree-nodes="" ng-model="tree1">
+						<li ng-repeat="node in tree1" ui-tree-node
+							ng-include="'nodes_renderer1.html'"></li>
+					</ol>
+				</div>
+			</div>
+
+			<div class="col-sm-6">
+			dddd
+			</div>
+		</div>
+
+		<h3>Data binding</h3>
+		<div class="row">
+			<div class="col-sm-6">
+				<pre class="code">{{ tree1 | json }}</pre>
+			</div>
+
+		</div>
+
+	</div>
+
+	<!--[if IE 8]>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/es5-shim/3.4.0/es5-shim.min.js"></script>
+  <![endif]-->
+	<script src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/angular-ui-tree.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="/bower_components/angular-route/angular-route.min.js"></script>
+	<script
+		src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+</body>
+</html>

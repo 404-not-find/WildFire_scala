@@ -1,0 +1,55 @@
+<style>
+    .form-row {
+        padding-bottom: .5em;
+    }
+
+    .css-form input.ng-invalid.ng-dirty {
+        background-color: #FA787E;
+    }
+
+    .css-form input.ng-valid.ng-dirty {
+        background-color: #78FA89;
+    }
+    
+    .formtext {
+    	width:80%;
+    }
+</style>
+
+<!-- TODO:  Add confirmation notification on save, should only be red on save pressed or on leave field.  Not automatically. -->
+
+<div fade-in>
+
+    <div class="container" ng-controller="textController">
+    	 
+          <div class="well">
+	       	  <form novalidate class="container css-form">
+	       	  		<div class="container form-row">
+	       	  		对象:&nbsp;<select ng-model="object.selectedItem"  ng-options="name for (name,value) in items">
+    					</select>	
+    				</div>	
+	                <div class="container form-row">
+	                  	  中文名:&nbsp;<input class="formtext" type="text" ng-model="object.cnName" required/>
+	                </div>
+	                <div class="container form-row">
+	                     	英文名:&nbsp;<input class="formtext" type="text" ng-model="object.enName"
+	                                                    required/><br/>
+	                </div>
+	                <div class="container form-row">
+	                     	描述:&nbsp;<textarea class="formtext"  ng-model="object.description"></textarea><br/>
+	                </div>
+	
+	                <div style="padding-top: 1em;" class="container form-row">
+	                    <a class="btn btn-primary" ng-click="object = '';">Reset</a>
+	                    &nbsp;&nbsp;&nbsp;
+	                    <a class="btn btn-primary" ng-click="saveForm(object)">Save</a>
+	                </div>
+	            </form>
+        </div>
+        
+        <pre>form = {{object | json}}</pre>
+        <pre>master = {{master | json}}</pre>
+
+    </div>
+
+</div>

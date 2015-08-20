@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<route>
+	<route-mapping>
+		<servlet-name>appServlet</servlet-name>
+		<url-pattern>/service/*</url-pattern>
+	</route-mapping>
+	<route-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>/</url-pattern>
+	</route-mapping>
+	<route-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.html</url-pattern>
+	</route-mapping>
+	<route-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.gif</url-pattern>
+	</route-mapping>
+	<route-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.png</url-pattern>
+	</route-mapping>
+	<route-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.jpg</url-pattern>
+	</route-mapping>
+	<route-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.js</url-pattern>
+	</route-mapping>
+	<route-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.css</url-pattern>
+	</route-mapping>
+	<route-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.json</url-pattern>
+	</route-mapping>
+	<route-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.txt</url-pattern>
+	</route-mapping>
+</route>
